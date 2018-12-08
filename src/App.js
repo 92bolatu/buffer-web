@@ -5,6 +5,10 @@ import primaryColor from '@material-ui/core/colors/blue';
 import secondaryColor from '@material-ui/core/colors/purple';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
+import {BrowserRouter, Route} from 'react-router-dom';
+
+import HomeScreen from './screen/HomeScreen';
+
 export default class App extends React.Component {
 
     constructor(props) {
@@ -30,7 +34,13 @@ export default class App extends React.Component {
         return (
             <MuiThemeProvider theme={this.state.theme}>
                 <CssBaseline>
-                    <div>sss</div>
+                    <BrowserRouter>
+                        <div>
+
+                            <Route exact path="/" component={HomeScreen}/>
+                            <Route path="/login" component={HomeScreen}/>
+                        </div>
+                    </BrowserRouter>
                 </CssBaseline>
             </MuiThemeProvider>
         );
