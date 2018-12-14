@@ -11,7 +11,7 @@ export default class HomeScreen extends React.Component {
         return (
             <div>
                 <NavigationBar></NavigationBar>
-
+                <div>sss</div>
             </div>
 
 

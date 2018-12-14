@@ -28,6 +28,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 
+import ThemeTypeIconButton from './ThemeTypeIconButton';
 
 class NavigationBar extends React.Component {
     constructor(props) {
@@ -110,6 +111,7 @@ class NavigationBar extends React.Component {
                             <FaceIcon/>
                         </IconButton>
 
+                        <ThemeTypeIconButton></ThemeTypeIconButton>
 
                     </div>
                     <div className={classes.sectionMobile}>
