@@ -1,12 +1,19 @@
+import {makeTheme} from "../AppTheme";
+
 const initState = {
-    Type: 'light',
+    config: {
+        type: 'light',
+        primary: null,
+        secondary: null,
+    },
+    theme: makeTheme()
 };
 
 const themeReducer = (state = initState, action) => {
     switch (action.type) {
-        case 'TOGGLE_THEME_TYPE':
-            let Type = state.Type === 'dark' ? 'light' : 'dark';
-            return {...state, Type};
+        case 'SET_THEME_PALETTE_TYPE':
+            let config = {...state.config, type: action.value};
+            return {config, theme: makeTheme(config)};
         default:
             return state;
     }

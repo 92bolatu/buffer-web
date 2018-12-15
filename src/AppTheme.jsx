@@ -20,33 +20,26 @@ class AppTheme extends React.Component {
     }
 }
 
-const makeTheme = ({Type}) => {
+const makeTheme = ({primary, secondary, type} = {}) => {
     let theme = createMuiTheme({
         palette: {
-            primary: {
-                light: primaryColor[300],
-                main: primaryColor[500],
-                dark: primaryColor[700],
-            },
-            secondary: {
-                light: secondaryColor[300],
-                main: secondaryColor[500],
-                dark: secondaryColor[700],
-            },
-            type: Type
+            primary: primary || primaryColor,
+            secondary: secondary || secondaryColor,
+            type: type || 'light'
         },
         typography: {
             useNextVariants: true,
         },
     });
-    console.log('Theme Rebuild ', theme);
     return theme;
 };
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        theme: makeTheme(state.theme)
+        theme: state.theme.theme
     }
 };
+
+export {makeTheme};
 
 export default connect(mapStateToProps)(AppTheme);

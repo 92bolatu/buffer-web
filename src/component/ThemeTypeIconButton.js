@@ -11,10 +11,11 @@ import WbSunnyIcon from '@material-ui/icons/WbSunny';
 
 class ThemeTypeIconButton extends React.Component {
     render() {
-        let {isDark} = this.props;
+        let isDark = this.props.type === 'dark';
+        let toggle = isDark ? 'light' : 'dark';
         return (
-            <Tooltip title={`Click to ${isDark ? 'light' : 'dark'}`}>
-                <IconButton color="inherit" onClick={this.props.onClick}>
+            <Tooltip title={`Click to ${toggle}`}>
+                <IconButton color="inherit" onClick={() => this.props.onClick(toggle)}>
                     {isDark ? <WbIncandescentIcon/> : <WbSunnyIcon/>}
                 </IconButton>
             </Tooltip>
@@ -24,13 +25,13 @@ class ThemeTypeIconButton extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        isDark: state.theme.Type === 'dark'
+        type: state.theme.config.type
     };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        onClick: () => dispatch({type: 'TOGGLE_THEME_TYPE'})
+        onClick: (value) => dispatch({type: 'SET_THEME_PALETTE_TYPE', value})
     };
 }
 
