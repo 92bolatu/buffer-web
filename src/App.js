@@ -7,6 +7,7 @@ import logger from 'redux-logger';
 
 
 import AppTheme from './AppTheme';
+import AppRoute from  './AppRoute';
 import reducers from './reducers';
 
 const store = createStore(reducers, applyMiddleware(logger));
@@ -16,12 +17,7 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <AppTheme>
-                    <BrowserRouter>
-                        <div>
-                            <Route exact path="/" component={HomeScreen}/>
-                            <Route path="/login" component={HomeScreen}/>
-                        </div>
-                    </BrowserRouter>
+                    <AppRoute/>
                 </AppTheme>
             </Provider>
         );

@@ -11,7 +11,7 @@
     "react-dom": "^16.6.3",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1",
+    "react-scripts": "1.1.5",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6"
   },
@@ -29,5 +29,22 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "proxy": {
+    "/api": {
+      "target": "http://127.0.0.1:6001",
+      "pathRewrite": {
+        "^/api": "/"
+      }
+    },
+    "/auth": {
+      "target": "http://127.0.0.1:4011",
+      "pathRewrite": {
+        "^/auth": "/"
+      }
+    }
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.4.2"
+  }
 }

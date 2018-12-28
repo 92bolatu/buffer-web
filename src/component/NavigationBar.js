@@ -36,36 +36,9 @@ class NavigationBar extends React.Component {
 
         this.state = {
 
-            result: {},
-            sidebar: true,
 
-
-            search: '',
-            keyword: '',
-            section: {
-
-                Keyword: {
-                    name: 'Keyword',
-                },
-                series1: {
-                    value: 1,
-
-                    both: false,
-                    items: []
-                },
-                isOwned: {value: 0}
-            },
-
-            modal: '',
-            open: false,
-
-            display: {
-                picture: true,
-                layouts: 1,
-            },
 
         };
-        console.log(props);
 
     }
 
@@ -78,7 +51,7 @@ class NavigationBar extends React.Component {
                         <MenuIcon/>
                     </IconButton>
                     <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                        Library
+                        Buff
                     </Typography>
                     <div className={classes.grow}/>
                     <div className={classes.search}>
